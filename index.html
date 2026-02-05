@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sosialisasi Kawan MKI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* 1. CORE SETUP */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Container Slide Utama */
+        .slide-container {
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            font-family: 'Lato', sans-serif;
+            width: 95%; 
+            max-width: 1000px; 
+            min-height: 600px;
+            overflow: hidden;
+            padding: 40px;
+            position: relative;
+            border-radius: 15px;
+        }
+
+        /* 2. TYPOGRAPHY */
+        h1, h2, h3 {
+            color: #1e3a8a;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+
+        .slide-title {
+            font-size: clamp(24px, 5vw, 36px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #f97316;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        p, li, td, th {
+            font-size: clamp(16px, 3vw, 18px);
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        /* 3. ANIMASI WARNA WARNI (DINAMIS) */
+        .dynamic-title { 
+            font-size: clamp(28px, 6vw, 48px);
+            line-height: 1.2; 
+            margin-bottom: 25px; 
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(to right, #1e3a8a, #f97316, #0284c7, #1e3a8a);
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorFlow 6s linear infinite, titleEntrance 1.2s ease-out;
+        }
+
+        @keyframes colorFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
+        }
+
+        @keyframes titleEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 4. COMPONENTS */
+        .logo-img { 
+            height: clamp(60px, 15vw, 100px); 
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .qr-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px dashed #cbd5e1;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .tile {
+            background: #f8fafc;
+            border-top: 5px solid #1e3a8a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+        }
+
+        .tile:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+        .highlight-box {
+            background: #e0f2fe;
+            padding: 20px;
+            border-left: 6px solid #0284c7;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .future-badge {
+            background: #f97316;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* 5. RESPONSIVE LAYOUTS */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { background: #1e3a8a; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #e2e8f0; }
+
+        .bullet-list { list-style: none; padding: 0; }
+        .bullet-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+        .bullet-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #f97316;
+        }
+
+        /* Mobile Specific Adjustment */
+        @media (max-width: 600px) {
+            .slide-container { padding: 25px 20px; }
+            .dynamic-title { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1 -->
+    <div class="slide-container">
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; min-height: 500px;">
+            <img src="https://lh3.googleusercontent.com/d/1GfRYHdZVEnt3WnSLJfmMKzx3HLSctPCh" alt="Logo Kawan MKI" class="logo-img">
+            <h1 class="dynamic-title">Sosialisasi Program dan Keanggotaan Koperasi Kawan MKI</h1>
+            <div class="qr-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://kopkawanmki-byte.github.io/Daftarhadir/" alt="QR" style="width: 120px;">
+                <p style="font-size: 14px; font-weight: bold; margin: 5px 0 0; color: #1e3a8a;">Scan Daftar Hadir</p>
+            </div>
+            <p style="font-weight: 600; color: #64748b;">PT Mitra Kiara Indonesia</p>
+        </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide-container">
+        <h2 class="slide-title">1. Pengantar</h2>
+        <div class="highlight-box">
+            <h3>Apa itu Koperasi Kawan MKI?</h3>
+            <p>Wadah ekonomi karyawan untuk memenuhi kebutuhan bersama secara mandiri dan berasas kekeluargaan.</p>
+        </div>
+        <ul class="bullet-list">
+            <li>Milik Karyawan, Oleh Karyawan, Untuk Karyawan.</li>
+            <li>Pilar kesejahteraan di luar pendapatan rutin.</li>
+            <li>Berbadan hukum dan dikelola profesional.</li>
+        </ul>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide-container">
+        <h2 class="slide-title">2. Tujuan Utama</h2>
+        <div class="grid-2">
+            <div class="tile">
+                <h3><i class="fa-solid fa-heart-pulse"></i> Kesejahteraan</h3>
+                <p>Meningkatkan ekonomi anggota melalui unit usaha dan bagi hasil.</p>
+            </div>
+            <div class="tile">
+                <h3><i class="fa-solid fa-basket-shopping"></i> Layanan</h3>
+                <p>Menyediakan kebutuhan harian dan finansial yang mudah & murah.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Visi & Misi Terupdate -->
+    <div class="slide-container">
+        <h2 class="slide-title">3. Visi & Misi</h2>
+        <div class="tile" style="border-left: 6px solid #f97316; border-top: none;">
+            <h3 style="color: #f97316; font-size: 18px; margin-bottom: 8px;">Visi Koperasi Kawan MKI</h3>
+            <p style="font-style: italic; font-weight: 600;">"Koperasi konsumen menjadikan koperasi karyawan sebagai mitra anggota dan manajemen untuk meningkatkan kesejahteraan anggota."</p>
+        </div>
+        <div class="tile">
+            <h3 style="color: #1e3a8a; font-size: 18px; margin-bottom: 12px;">Misi Koperasi Kawan MKI</h3>
+            <ul class="bullet-list" style="font-size: 16px;">
+                <li>Menyediakan produk dan jasa yang lengkap sesuai dengan kepentingan anggota.</li>
+                <li>Memberikan layanan prima bagi anggota.</li>
+                <li>Membantu menciptakan peluang usaha bagi anggota.</li>
+                <li>Melakukan kerja sama usaha yang saling menguntungkan dalam rangka pengembangan koperasi.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 5: Program Terupdate -->
+    <div class="slide-container">
+        <h2 class="slide-title">4. Program Koperasi</h2>
+        
+        <h3 style="font-size: 20px; margin-bottom: 15px; color: #059669;"><i class="fa-solid fa-circle-check"></i> Program Berjalan</h3>
+        <div class="grid-2" style="margin-bottom: 30px;">
+            <div class="tile">
+                <h3>Kantin & Toko</h3>
+                <p>Penyediaan makanan, snack, dan kebutuhan harian karyawan di area operasional.</p>
+            </div>
+            <div class="tile">
+                <h3>Produk Mortar</h3>
+                <p>Pemasaran produk internal untuk mendukung sirkulasi ekonomi koperasi.</p>
+            </div>
+        </div>
+
+        <h3 style="font-size: 20px; margin-bottom: 15px; color: #f97316;"><i class="fa-solid fa-clock-rotate-left"></i> Program Mendatang</h3>
+        <div class="tile" style="background: #fff7ed; border-top-color: #f97316;">
+            <div class="future-badge">Coming Soon</div>
+            <h3>Simpan Pinjam Anggota</h3>
+            <p>Fasilitas finansial khusus anggota untuk membantu kebutuhan dana mendesak dengan proses cepat dan bunga yang sangat kompetitif dibandingkan lembaga keuangan luar.</p>
+            <ul class="bullet-list" style="margin-top: 10px; font-size: 16px;">
+                <li>Pinjaman Darurat (Emergency Fund).</li>
+                <li>Tabungan Berjangka dengan imbal hasil menarik.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 6 -->
+    <div class="slide-container">
+        <h2 class="slide-title">5. Menjadi Anggota</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Simpanan</th>
+                        <th>Nilai</th>
+                        <th>Frekuensi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pokok</td>
+                        <td>Rp 200.000</td>
+                        <td>1x di awal</td>
+                    </tr>
+                    <tr>
+                        <td>Wajib</td>
+                        <td>Rp 100.000</td>
+                        <td>Tiap bulan</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 14px; margin-top: 15px; color: #64748b;">* Dana simpanan akan dikembalikan saat berhenti menjadi anggota.</p>
+    </div>
+
+    <!-- Slide 7 -->
+    <div class="slide-container">
+        <h2 class="slide-title">6. Sisa Hasil Usaha (SHU)</h2>
+        <div class="tile">
+            <h3>Apa Keuntungannya?</h3>
+            <p>Setiap akhir tahun, laba bersih koperasi dibagikan kembali kepada anggota berdasarkan:</p>
+            <ul class="bullet-list" style="margin-top: 10px;">
+                <li><strong>Jasa Modal:</strong> Berdasarkan besar tabungan Anda.</li>
+                <li><strong>Jasa Usaha:</strong> Berdasarkan seberapa aktif Anda belanja/transaksi.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Slide 8 -->
+    <div class="slide-container" style="text-align: center; justify-content: center;">
+        <h2 style="font-size: 32px; margin-bottom: 20px;">Mari Bergabung!</h2>
+        <p style="margin-bottom: 30px;">Klik tombol di bawah atau scan QR untuk mendaftar.</p>
+        <div class="qr-card" style="display: inline-block; padding: 25px; border-style: solid; border-color: #1e3a8a;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://kopkawanmki-byte.github.io/Pendaftaran/" alt="QR Daftar" style="width: 150px;">
+            <p style="margin-top: 10px; font-weight: bold;">Scan Pendaftaran</p>
+        </div>
+        <div style="margin-top: 30px;">
+            <i class="fa-solid fa-comments-question" style="font-size: 50px; color: #f97316;"></i>
+            <h3 style="margin-top: 10px;">Sesi Tanya Jawab</h3>
+        </div>
+    </div>
+
+</body>
+</html>
