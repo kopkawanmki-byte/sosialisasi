@@ -178,6 +178,245 @@
             color: #f97316;
         }
 
+        /* --- ANIMATION STYLES FOR INTRO SLIDE --- */
+        .intro-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 140px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .coop-bg-circle {
+            width: 120px;
+            height: 120px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+            animation: pulse-ring 3s infinite;
+        }
+
+        .main-icon-store {
+            font-size: 80px;
+            color: #1e3a8a;
+            z-index: 2;
+            position: relative;
+        }
+
+        .sub-icon-users {
+            font-size: 35px;
+            color: #f97316;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            bottom: 10px;
+            right: calc(50% - 60px);
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: bounce-sub 2s infinite ease-in-out;
+        }
+
+        .sub-icon-handshake {
+            font-size: 30px;
+            color: #059669;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            top: 10px;
+            left: calc(50% - 60px);
+            z-index: 3;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: float-sub 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+        @keyframes bounce-sub {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes float-sub {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-5px) rotate(10deg); }
+        }
+
+        /* --- FLOWCHART STYLES (SLIDE 7) --- */
+        .flowchart-wrapper {
+            margin-top: 10px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.05);
+            position: relative;
+            height: auto; 
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flowchart-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #1e3a8a, #f97316, #10b981);
+        }
+
+        .flow-header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .flow-header h3 {
+            font-size: 20px;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+
+        .flow-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-right: 10px;
+            padding-bottom: 20px;
+        }
+
+        /* Garis Vertikal */
+        .flow-timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: #cbd5e1;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            margin-left: -2px;
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .flow-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            
+            /* Hidden by default for step-by-step click */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Class to reveal items */
+        .flow-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .flow-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3a8a;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-right: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .flow-item:hover .flow-icon {
+            transform: scale(1.1);
+            border-color: #f97316;
+            color: #f97316;
+        }
+
+        .flow-content {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .flow-content h4 {
+            margin: 0 0 5px;
+            font-size: 16px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .flow-content p {
+            margin: 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .flow-content::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 15px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            transform: rotate(45deg);
+            border-left: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .flow-item.final .flow-icon {
+            background: #10b981;
+            border-color: #059669;
+            color: white;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .flow-item.final .flow-content {
+            background: #ecfdf5;
+            border-color: #a7f3d0;
+        }
+
+        .flow-item.final h4 { color: #047857; }
+
+        .badge-official {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            margin-left: 10px;
+            vertical-align: middle;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
         /* 5. NAVIGATION CONTROLS */
         .nav-controls {
             position: fixed;
@@ -242,6 +481,17 @@
             .slide-container { padding: 25px 20px; height: 80vh; }
             .nav-btn span { display: none; }
             .nav-btn { padding: 15px; border-radius: 50%; }
+            .intro-visual { height: 100px; }
+            .coop-bg-circle { width: 90px; height: 90px; }
+            .main-icon-store { font-size: 60px; }
+            .sub-icon-users { font-size: 25px; right: calc(50% - 50px); }
+            .sub-icon-handshake { font-size: 20px; left: calc(50% - 50px); }
+            
+            /* Flowchart Mobile tweaks */
+            .flow-content h4 { font-size: 14px; }
+            .flow-content p { font-size: 12px; }
+            .flow-icon { width: 40px; height: 40px; font-size: 16px; margin-right: 15px; }
+            .flow-timeline::after { left: 20px; }
         }
     </style>
 </head>
@@ -270,6 +520,14 @@
         <!-- Slide 2 -->
         <div class="slide-container" id="slide-2">
             <h2 class="slide-title">1. Pengantar</h2>
+            
+            <div class="intro-visual">
+                <div class="coop-bg-circle"></div>
+                <i class="fa-solid fa-shop main-icon-store"></i>
+                <i class="fa-solid fa-users sub-icon-users"></i>
+                <i class="fa-solid fa-handshake-angle sub-icon-handshake"></i>
+            </div>
+
             <div class="highlight-box">
                 <h3>Apa itu Koperasi KAWAN KAMI?</h3>
                 <p>Koperasi KAWAN KAMI adalah wadah ekonomi karyawan yang dibentuk untuk memenuhi kebutuhan bersama secara mandiri, berlandaskan asas kekeluargaan dan kebersamaan.</p>
@@ -294,6 +552,105 @@
                     <p>Menyediakan kebutuhan harian dan finansial yang mudah & murah bagi anggota.</p>
                 </div>
             </div>
+
+            <div style="margin-top: 25px; animation: fadeInUp 0.8s ease-out;">
+                <h3 style="font-size: 18px; margin-bottom: 12px; color: #1e3a8a; display: flex; align-items: center; gap: 10px;">
+                    <span style="background: #f97316; color: white; padding: 5px 10px; border-radius: 8px; font-size: 14px;"><i class="fa-solid fa-person-walking-arrow-right"></i></span>
+                    Langkah Maju Bersama
+                </h3>
+                
+                <div class="walking-scene">
+                    <i class="fa-solid fa-cloud cloud c1"></i>
+                    <i class="fa-solid fa-cloud cloud c2"></i>
+                    
+                    <div class="coop-building">
+                        <i class="fa-solid fa-shop"></i>
+                        <div class="flag"><i class="fa-solid fa-flag"></i></div>
+                    </div>
+
+                    <div class="road"></div>
+
+                    <div class="walker-group">
+                        <i class="fa-solid fa-person-walking w1"></i>
+                        <i class="fa-solid fa-person-walking w2"></i>
+                        <i class="fa-solid fa-person-walking w3"></i>
+                    </div>
+                </div>
+
+                <p style="font-size: 13px; color: #64748b; margin-top: 10px; text-align: center; font-style: italic;">
+                    *Ilustrasi: Sinergi anggota bergerak menuju kesejahteraan.
+                </p>
+            </div>
+            
+            <style>
+                .walking-scene {
+                    width: 100%;
+                    height: 180px;
+                    background: linear-gradient(to bottom, #eff6ff 0%, #dbeafe 100%);
+                    border-radius: 15px;
+                    border: 4px solid #bfdbfe;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.1);
+                }
+
+                .road {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 35px;
+                    background: #475569;
+                    border-top: 4px solid #334155;
+                    z-index: 1;
+                }
+
+                .cloud { position: absolute; color: white; opacity: 0.8; }
+                .c1 { top: 20px; left: 10%; font-size: 40px; animation: floatCloud 15s linear infinite; }
+                .c2 { top: 50px; left: 60%; font-size: 30px; animation: floatCloud 20s linear infinite reverse; }
+
+                @keyframes floatCloud {
+                    0% { transform: translateX(0); }
+                    50% { transform: translateX(30px); }
+                    100% { transform: translateX(0); }
+                }
+
+                .coop-building {
+                    position: absolute;
+                    bottom: 25px;
+                    right: 40px;
+                    font-size: 70px;
+                    color: #1e3a8a;
+                    z-index: 0; 
+                }
+                .flag {
+                    position: absolute;
+                    top: -25px;
+                    right: 5px;
+                    font-size: 25px;
+                    color: #f97316;
+                    animation: wave 2s ease-in-out infinite;
+                }
+                @keyframes wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(20deg); } }
+
+                .walker-group {
+                    position: absolute;
+                    bottom: 30px; 
+                    left: -150px; 
+                    display: flex;
+                    gap: 20px;
+                    z-index: 2;
+                    animation: walkAcross 12s linear infinite;
+                }
+                
+                .walker-group i { font-size: 45px; animation: bob 0.5s infinite alternate ease-in-out; }
+                .w1 { color: #0369a1; }
+                .w2 { color: #d97706; animation-delay: 0.1s !important; }
+                .w3 { color: #15803d; animation-delay: 0.2s !important; }
+
+                @keyframes walkAcross { 0% { left: -150px; } 100% { left: 100%; } }
+                @keyframes bob { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
+                @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+            </style>
         </div>
 
         <!-- Slide 4 -->
@@ -336,7 +693,7 @@
             </div>
         </div>
 
-        <!-- Slide 6 -->
+        <!-- Slide 6: Menjadi Anggota (Tabel) -->
         <div class="slide-container" id="slide-6">
             <h2 class="slide-title">5. Menjadi Anggota</h2>
             <div style="overflow-x: auto;">
@@ -365,9 +722,82 @@
             <p style="font-size: 14px; margin-top: 15px; color: #64748b;">* Dana simpanan bersifat hak milik anggota dan dapat diambil saat berhenti menjadi anggota.</p>
         </div>
 
-        <!-- Slide 7 -->
+        <!-- Slide 7: Alur Bergabung (Flowchart) - INTERACTIVE -->
         <div class="slide-container" id="slide-7">
-            <h2 class="slide-title">6. Sisa Hasil Usaha (SHU)</h2>
+            <h2 class="slide-title">6. Alur Bergabung</h2>
+            
+            <div class="flowchart-wrapper">
+                <div class="flow-header">
+                    <h3>Alur Bergabung Bersama Koperasi Kawan Kami</h3>
+                    <i class="fa-solid fa-people-group" style="color: #cbd5e1; font-size: 40px; opacity: 0.5;"></i>
+                    <!-- Teks instruksi dihapus sesuai permintaan -->
+                </div>
+
+                <div class="flow-timeline">
+                    <!-- Step 1 -->
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fa-solid fa-person-walking-luggage"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Mulai</h4>
+                            <p>Langkah Awal Menuju Kebersamaan</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Isi Formulir Pendaftaran</h4>
+                            <p>Menandai komitmen awal untuk tumbuh bersama</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Persetujuan Simpanan</h4>
+                            <p>Partisipasi aktif dalam membangun kekuatan bersama</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flow-item">
+                        <div class="flow-icon">
+                            <i class="fa-solid fa-wallet"></i>
+                        </div>
+                        <div class="flow-content">
+                            <h4>Realisasi Simpanan Pokok</h4>
+                            <p>Langkah nyata menuju keanggotaan resmi</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flow-item final">
+                        <div class="flow-icon">
+                            <i class="fa-solid fa-users-rays"></i>
+                        </div>
+                        <div class="flow-content">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <h4>Resmi Menjadi Anggota</h4>
+                                <span class="badge-official"><i class="fa-solid fa-check"></i> Official</span>
+                            </div>
+                            <p>Bagian dari keluarga besar yang saling mendukung dan berdaya</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: SHU -->
+        <div class="slide-container" id="slide-8">
+            <h2 class="slide-title">7. Sisa Hasil Usaha (SHU)</h2>
             <div class="tile">
                 <h3>Keuntungan Finansial</h3>
                 <p>Setiap akhir tahun buku, laba bersih koperasi dibagikan kembali kepada anggota:</p>
@@ -381,8 +811,8 @@
             </div>
         </div>
 
-        <!-- Slide 8 -->
-        <div class="slide-container" id="slide-8">
+        <!-- Slide 9: Penutup -->
+        <div class="slide-container" id="slide-9">
             <div style="text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%;">
                 <h2 style="font-size: 36px; margin-bottom: 20px;">Mari Maju Bersama!</h2>
                 <div class="qr-card" style="display: inline-block; padding: 25px; border-style: solid; border-color: #1e3a8a; width: fit-content; align-self: center;">
@@ -402,7 +832,7 @@
         <button class="nav-btn" id="prev-btn" disabled>
             <i class="fa-solid fa-arrow-left"></i> <span>Kembali</span>
         </button>
-        <div class="page-indicator" id="page-idx">1 / 8</div>
+        <div class="page-indicator" id="page-idx">1 / 9</div>
         <button class="nav-btn" id="next-btn">
             <span>Lanjut</span> <i class="fa-solid fa-arrow-right"></i>
         </button>
@@ -410,7 +840,7 @@
 
     <script>
         let currentSlide = 1;
-        const totalSlides = 8;
+        const totalSlides = 9;
         const slides = document.querySelectorAll('.slide-container');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
@@ -431,6 +861,13 @@
 
             const nextEl = document.getElementById(`slide-${currentSlide}`);
             
+            // Logic Reset untuk Slide 7 (Flowchart) saat masuk kembali
+            if (currentSlide === 7) {
+                // Reset semua item agar tersembunyi lagi
+                const flowItems = document.querySelectorAll('#slide-7 .flow-item');
+                flowItems.forEach(item => item.classList.remove('visible'));
+            }
+
             // Bersihkan kelas transisi dan tampilkan yang baru
             setTimeout(() => {
                 slides.forEach(s => s.classList.remove('prev-exit'));
@@ -448,7 +885,23 @@
         function handleGlobalClick(e) {
             // Jangan pindah slide jika yang diklik adalah tombol navigasi atau tombol fullscreen
             if (e.target.closest('.nav-controls') || e.target.closest('#fullscreen-btn')) return;
+
+            // LOGIKA KHUSUS SLIDE 7 (FLOWCHART INTERAKTIF)
+            if (currentSlide === 7) {
+                const flowItems = document.querySelectorAll('#slide-7 .flow-item');
+                const hiddenItems = Array.from(flowItems).filter(item => !item.classList.contains('visible'));
+                
+                // Jika masih ada item yang tersembunyi, munculkan satu per satu
+                if (hiddenItems.length > 0) {
+                    hiddenItems[0].classList.add('visible');
+                    // Scroll otomatis sedikit jika diperlukan agar item baru terlihat
+                    // const listContainer = document.querySelector('#slide-7 .flow-timeline');
+                    // listContainer.scrollTop = listContainer.scrollHeight; 
+                    return; // Berhenti di sini, jangan pindah slide dulu
+                }
+            }
             
+            // Jika bukan Slide 7 atau semua item sudah muncul, lanjut ke slide berikutnya
             if (currentSlide < totalSlides) {
                 updateSlides('next');
             }
@@ -466,7 +919,18 @@
 
         // Keyboard Navigation
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ') updateSlides('next');
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                // Tambahkan logika yang sama untuk tombol spasi/kanan
+                if (currentSlide === 7) {
+                     const flowItems = document.querySelectorAll('#slide-7 .flow-item');
+                     const hiddenItems = Array.from(flowItems).filter(item => !item.classList.contains('visible'));
+                     if (hiddenItems.length > 0) {
+                         hiddenItems[0].classList.add('visible');
+                         return;
+                     }
+                }
+                updateSlides('next');
+            }
             if (e.key === 'ArrowLeft') updateSlides('prev');
         });
 
